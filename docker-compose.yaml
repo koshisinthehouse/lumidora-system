@@ -1,0 +1,22 @@
+version: '3.8'
+services:
+  lumidora-sd-webui:
+    image: lumidora-sd-webui  # Replace with the actual image name
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [ gpu ]
+    ports:
+      - "7860:7860"
+    volumes:
+      - ./resources/stable-diffusion-webui/models/:/app/stable-diffusion-webui/models
+      - ./resources/stable-diffusion-webui/localizations/:/app/stable-diffusion-webui/localizations
+      - ./resources/stable-diffusion-webui/extensions/SadTalker/:/app/stable-diffusion-webui/extensions/SadTalker/
+      - lumidora-sd-webui-outputs:/app/stable-diffusion-webui/outputs
+      - lumidora-sd-webui-results:/app/stable-diffusion-webui/results
+volumes:
+  lumidora-sd-webui-outputs:
+  lumidora-sd-webui-results:

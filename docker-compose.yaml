@@ -12,11 +12,17 @@ services:
     ports:
       - "7860:7860"
     volumes:
-      - ./resources/stable-diffusion-webui/models/:/app/stable-diffusion-webui/models
-      - ./resources/stable-diffusion-webui/localizations/:/app/stable-diffusion-webui/localizations
-      - ./resources/stable-diffusion-webui/extensions/SadTalker/:/app/stable-diffusion-webui/extensions/SadTalker/
       - lumidora-sd-webui-outputs:/app/stable-diffusion-webui/outputs
       - lumidora-sd-webui-results:/app/stable-diffusion-webui/results
+      #- lumidora-sd-webui-extensions:/app/stable-diffusion-webui/extensions/
+  lumidora-logging:
+    image: amir20/dozzle:latest
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    restart: unless-stopped
+    ports:
+      - 9999:8080
 volumes:
   lumidora-sd-webui-outputs:
   lumidora-sd-webui-results:
+  lumidora-sd-webui-extensions:

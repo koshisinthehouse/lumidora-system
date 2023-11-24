@@ -1,5 +1,11 @@
 version: '3.8'
 services:
+  lumidora-tts:
+    image: lumidora-tts
+    ports:
+      - "8080:8080"
+    volumes:
+      - lumidora-tts-models:/go/src/app/models
   lumidora-sd-webui:
     image: lumidora-sd-webui  # Replace with the actual image name
     deploy:
@@ -23,6 +29,7 @@ services:
     ports:
       - 9999:8080
 volumes:
+  lumidora-tts-models:
   lumidora-sd-webui-outputs:
   lumidora-sd-webui-results:
   lumidora-sd-webui-extensions:

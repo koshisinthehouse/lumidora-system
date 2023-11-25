@@ -1,11 +1,17 @@
 version: '3.8'
 services:
-  lumidora-tts:
-    image: lumidora-tts
+  lumidora-tg-webui:
+    image: lumidora-tg-webui
     ports:
-      - "8080:8080"
-    volumes:
-      - lumidora-tts-models:/go/src/app/models
+      - "7860:7860"
+      - "5000:5000"
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [ gpu ]
   lumidora-sd-webui:
     image: lumidora-sd-webui  # Replace with the actual image name
     deploy:
@@ -16,11 +22,17 @@ services:
               count: 1
               capabilities: [ gpu ]
     ports:
-      - "7860:7860"
+      - "7861:7860"
     volumes:
       - lumidora-sd-webui-outputs:/app/stable-diffusion-webui/outputs
       - lumidora-sd-webui-results:/app/stable-diffusion-webui/results
       #- lumidora-sd-webui-extensions:/app/stable-diffusion-webui/extensions/
+  lumidora-tts:
+    image: lumidora-tts
+    ports:
+      - "7862:8080"
+    volumes:
+      - lumidora-tts-models:/go/src/app/models
   lumidora-logging:
     image: amir20/dozzle:latest
     volumes:

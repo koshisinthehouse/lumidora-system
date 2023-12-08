@@ -1,17 +1,17 @@
 version: '3.8'
 services:
-  lumidora-tg-webui:
-    image: lumidora-tg-webui
-    ports:
-      - "7860:7860"
-      - "5000:5000"
-    deploy:
-      resources:
-        reservations:
-          devices:
-            - driver: nvidia
-              count: 1
-              capabilities: [ gpu ]
+#  lumidora-tg-webui:
+#    image: lumidora-tg-webui
+#    ports:
+#      - "7860:7860"
+#      - "5000:5000"
+#    deploy:
+#      resources:
+#        reservations:
+#          devices:
+#            - driver: nvidia
+#              count: 1
+#              capabilities: [ gpu ]
   lumidora-sd-webui:
     image: lumidora-sd-webui  # Replace with the actual image name
     deploy:

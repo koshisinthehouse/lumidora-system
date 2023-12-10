@@ -13,7 +13,7 @@ services:
 #              count: 1
 #              capabilities: [ gpu ]
   lumidora-sd-webui:
-    image: lumidora-sd-webui  # Replace with the actual image name
+    image: domoskanonos/lumidora-sd-webui  # Replace with the actual image name
     deploy:
       resources:
         reservations:

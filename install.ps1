@@ -6,7 +6,7 @@ cd windows
 
 
 # install
-../lumidora-tg-webui/install.ps1
+#../lumidora-tg-webui/install.ps1
 
 
 cd docker

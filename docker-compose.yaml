@@ -28,7 +28,7 @@ services:
       - lumidora-sd-webui-results:/app/stable-diffusion-webui/results
       #- lumidora-sd-webui-extensions:/app/stable-diffusion-webui/extensions/
   lumidora-tts:
-    image: lumidora-tts
+    image: domoskanonos/lumidora-tts
     ports:
       - "7862:8080"
     volumes:

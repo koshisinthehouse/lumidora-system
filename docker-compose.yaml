@@ -26,7 +26,8 @@ services:
     volumes:
       - lumidora-sd-webui-outputs:/app/stable-diffusion-webui/outputs
       - lumidora-sd-webui-results:/app/stable-diffusion-webui/results
-      #- lumidora-sd-webui-extensions:/app/stable-diffusion-webui/extensions/
+      - lumidora-sd-webui-models:/app/stable-diffusion-webui/models
+      - lumidora-sd-webui-extensions:/app/stable-diffusion-webui/extensions
   lumidora-tts:
     image: domoskanonos/lumidora-tts
     ports:
@@ -44,4 +45,5 @@ volumes:
   lumidora-tts-models:
   lumidora-sd-webui-outputs:
   lumidora-sd-webui-results:
+  lumidora-sd-webui-models:
   lumidora-sd-webui-extensions:

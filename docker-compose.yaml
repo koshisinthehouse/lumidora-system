@@ -27,7 +27,7 @@ services:
       - lumidora-sd-webui-outputs:/app/stable-diffusion-webui/outputs
       - lumidora-sd-webui-results:/app/stable-diffusion-webui/results
       - lumidora-sd-webui-models:/app/stable-diffusion-webui/models
-      - lumidora-sd-webui-extensions:/app/stable-diffusion-webui/extensions
+      - lumidora-sd-webui-extensions-sadtalker:/app/stable-diffusion-webui/extensions/SadTalker
   lumidora-tts:
     image: domoskanonos/lumidora-tts
     ports:
@@ -46,4 +46,4 @@ volumes:
   lumidora-sd-webui-outputs:
   lumidora-sd-webui-results:
   lumidora-sd-webui-models:
-  lumidora-sd-webui-extensions:
+  lumidora-sd-webui-extensions-sadtalker:

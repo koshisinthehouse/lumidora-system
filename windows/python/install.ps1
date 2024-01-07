@@ -31,4 +31,4 @@ Invoke-Expression "$PYTHON_PATH/python $PYTHON_PATH/get-pip.py"
 Invoke-Expression "pip -V"
 
 pip install virtualenv
-#Invoke-Expression "$PYTHON_PATH\python -m pip install virtualenv"
+#Invoke-Expression "$PYTHON_PATH\python.exe -m pip install virtualenv"

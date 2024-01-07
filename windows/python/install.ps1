@@ -1,9 +1,9 @@
-$VERSION = "3.11"
+$VERSION = "3.8"
 $VERSION_WITHOUT_DOTS = $VERSION.Replace(".", "")
 $PYTHON_PATH = "C:/_dev/extract/python"
 
 $currentDrive = (Get-Location).Drive.Name
-$SOURCE_PATH = "$($currentDrive):/Lumidora/resources/python"
+$SOURCE_PATH = "D:/Lumidora/resources/python"
 
 # Deaktivieren der App-Ausführungs-Aliase für Python (Windows 11)
 $registryPath = "HKCU:\Software\Microsoft\Windows\CurrentVersion\App Paths"

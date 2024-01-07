@@ -1,4 +1,4 @@
-$VERSION = "3.8"
+$VERSION = "3.9"
 $VERSION_WITHOUT_DOTS = $VERSION.Replace(".", "")
 $PYTHON_PATH = "C:/_dev/extract/python"
 

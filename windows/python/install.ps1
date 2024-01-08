@@ -1,4 +1,4 @@
-$VERSION = "3.9"
+$VERSION = "3.11"
 $VERSION_WITHOUT_DOTS = $VERSION.Replace(".", "")
 $PYTHON_PATH = "C:/_dev/extract/python"
 
@@ -7,11 +7,30 @@ $SOURCE_PATH = "D:/Lumidora/resources/python"
 
 # Deaktivieren der App-Ausführungs-Aliase für Python (Windows 11)
 $registryPath = "HKCU:\Software\Microsoft\Windows\CurrentVersion\App Paths"
-Set-ItemProperty -Path "$registryPath\python.exe" -Name "DelegateExecute" -Value ""
-Set-ItemProperty -Path "$registryPath\python3.exe" -Name "DelegateExecute" -Value ""
-Write-Host "Python-Aliase wurden deaktiviert."
+$pythonExePath = "$registryPath\python.exe"
+$python3ExePath = "$registryPath\python3.exe"
 
-Remove-Item -Recurse -Force -ErrorAction SilentlyContinue $PYTHON_PATH
+if (Test-Path -Path $pythonExePath) {
+    Set-ItemProperty -Path $pythonExePath -Name "DelegateExecute" -Value ""
+    Write-Host "Python-Alias wurde deaktiviert."
+}
+
+if (Test-Path -Path $python3ExePath) {
+    Set-ItemProperty -Path $python3ExePath -Name "DelegateExecute" -Value ""
+    Write-Host "Python3-Alias wurde deaktiviert."
+}
+
+if (Test-Path -Path $PYTHON_PATH) {
+    try {
+        Write-Host "Lösche $PYTHON_PATH"
+        Remove-Item -Recurse -Force -ErrorAction Stop $PYTHON_PATH
+    }
+    catch {
+        Write-Host "Fehler beim Löschen von $PYTHON_PATH. Das Skript wird beendet."
+        exit
+    }
+}
+
 New-Item -ItemType Directory -Path $PYTHON_PATH
 
 Expand-Archive -Path "$SOURCE_PATH/python-$VERSION-embed-amd64.zip" -DestinationPath $PYTHON_PATH
